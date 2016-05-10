@@ -32,7 +32,7 @@ else
 
     # by default all incoming/forwarding traffic is blocked
     # if this parameter is specified, only the specified ports will be blocked
-    PORTS="22/tcp"
+    PORTS="2220/tcp"
 fi
 
 link_set () {
