@@ -22,7 +22,7 @@ link_set () {
 }
 
 logread > /tmp/logger.txt
-cat logger.txt | grep SRC= | awk '{print $14}' | sort | uniq | sed 's/^SRC=//' >> /tmp/log_blacklist_full.txt
+cat /tmp/logger.txt | grep SRC= | awk '{print $14}' | sort | uniq | sed 's/^SRC=//' >> /tmp/log_blacklist_full.txt
 
 sort /tmp/log_blacklist_full.txt | uniq -u > /tmp/log_full_ipset.txt
 
