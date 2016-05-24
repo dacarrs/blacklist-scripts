@@ -108,6 +108,15 @@ if ! ipset list | grep -q "Name: ${set_name}"; then
 fi
 link_set "${blocklist_chain_name}" "${set_name}" "$1"
 
+# create the logread blacklist set
+# will be populated with other cron job
+set_name="logread-blacklist"                                                                                                                                                                         
+if ! ipset list | grep -q "Name: ${set_name}"; then                                                                                                                                                  
+    ipset create "${set_name}" hash:ip                                                                                                                                                              
+fi                                                                                                                                                                                                   
+link_set "${blocklist_chain_name}" "${set_name}" "$1"
+
+
 # download and process the dynamic blacklists
 for url in $URLS
 do
