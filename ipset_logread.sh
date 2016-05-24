@@ -1,4 +1,4 @@
-!/bin/sh
+#!/bin/sh
 
 # /usr/local/sbin/block
 
